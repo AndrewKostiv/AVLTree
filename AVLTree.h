@@ -19,7 +19,7 @@ struct AVLNode
     }
 };
 
-class BSTree
+class AVLTree
 {
 private:
     AVLNode *root = nullptr;
@@ -31,8 +31,8 @@ private:
     AVLNode *getParentRecursive(AVLNode *subtreeRoot, const AVLNode *node) const;
 
 public:
-    BSTree(/* args */);
-    ~BSTree();
+    AVLTree(/* args */);
+    ~AVLTree();
     bool insert(int data);
     bool remove(int data);
     bool deleteNode(AVLNode &thisNode);
