@@ -4,8 +4,10 @@ struct AVLNode
 {
     int data;
     int balanceFactor;
+    int height;
     AVLNode *left = nullptr;
     AVLNode *right = nullptr;
+    AVLNode *parent = nullptr;
     AVLNode() {};
     AVLNode(int data)
     {
@@ -22,8 +24,6 @@ struct AVLNode
 class AVLTree
 {
 private:
-    AVLNode *root = nullptr;
-
     bool insertNode(AVLNode *current, AVLNode *newNode);
     bool removeNode(AVLNode *parent, AVLNode *node);
     void printRecursive(const AVLNode *thisNode) const;
@@ -31,6 +31,7 @@ private:
     AVLNode *getParentRecursive(AVLNode *subtreeRoot, const AVLNode *node) const;
 
 public:
+    AVLNode *root = nullptr;
     AVLTree(/* args */);
     ~AVLTree();
     bool insert(int data);
@@ -40,4 +41,14 @@ public:
     AVLNode *search(int key) const;
     AVLNode *getRoot() const;
     AVLNode *getParent(AVLNode *node) const;
+    void AVLTreeUpdateHeight(AVLNode *node);
+    int AVLTreeGetBalance(AVLNode *node);
+    bool AVLTreeReplaceChild(AVLNode *parent, AVLNode *currentChild, AVLNode *newChild);
+    bool AVLTreeSetChild(AVLNode *parent, const std::string &whichChild, AVLNode *child);
+    AVLNode *AVLTreeRotateRight(AVLTree *tree, AVLNode *node);
+    AVLNode *AVLTreeRotateLeft(AVLTree *tree, AVLNode *node);
+    AVLNode *AVLTreeRebalance(AVLTree *tree, AVLNode *node);
+    bool AVLTreeInsertKey(AVLTree *tree, int key);
+    void AVLTreeInsertNode(AVLTree *tree, AVLNode *node);
+    bool AVLTreeRemoveNode(AVLTree *tree, AVLNode *node);
 };
