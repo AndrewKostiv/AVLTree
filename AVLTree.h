@@ -50,5 +50,6 @@ public:
     AVLNode *AVLTreeRebalance(AVLTree *tree, AVLNode *node);
     bool AVLTreeInsertKey(AVLTree *tree, int key);
     void AVLTreeInsertNode(AVLTree *tree, AVLNode *node);
+    bool AVLTreeRemoveKey(AVLTree *tree, int key);
     bool AVLTreeRemoveNode(AVLTree *tree, AVLNode *node);
 };

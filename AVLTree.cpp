@@ -448,6 +448,16 @@ void AVLTree::AVLTreeInsertNode(AVLTree *tree, AVLNode *node)
  * @param AVLTree* tree
  * @param AVLNode* node
  */
+bool AVLTree::AVLTreeRemoveKey(AVLTree *tree, int key)
+{
+    AVLNode *node = search(key);
+    return AVLTreeRemoveNode(tree, node);
+}
+/**
+ * AVLTreeRemoveNode
+ * @param AVLTree* tree
+ * @param AVLNode* node
+ */
 bool AVLTree::AVLTreeRemoveNode(AVLTree *tree, AVLNode *node)
 {
     if (node == nullptr)
